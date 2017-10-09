@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<h1>The Psychic Game</h1>
+	<h2>Guess what letter I'm thinking of</h2>
+</head>
+<body>
+	<div id = "game"></div>
+	<div id = "wins"></div>
+	<div id = "losses"></div>
+	<div id = "guessesLeft"></div>
+	<div id = "guessesSoFar"></div>
+	
+	<link rel="stylesheet" type="text/css" href="/Users/alex/Desktop/coding bootcamp/homework/Psychic Game/assets/css/style.css">
+	<script type="text/javascript">
+	
+	// Reset after the user loses
+	var reset = function() {
+		document.getElementById('input').value = "";
+		document.getElementById('result').scrollTop = document.getElementById
+	}
+
+	// Make sure input is lowercase
+	var lowercase = function (input) {
+		return input.charAt(0).toLowerCase() + input.substring(1);
+	}
+
+	// HTML Element to output the text
+	var gameElem = document.getElementById("game");
+
+	function myFunction() {
+		var wins = document.getElementById('wins');
+		var losses = document.getElementById('losses');
+		var guessesLeft = document.getElementById('guessesLeft');
+		var guessesSoFar = document.getElementById('guessesSoFar');
+	}
+
+	// Assign value for inputs
+	function myFunction() {
+		$("wins").val($selectedOption.data("wins"));
+		$("losses").val($selectedOption.data("losses"));
+		$("guessesLeft").val($selectedOption.data("guessesLeft"));
+		$("guessesSoFar").val($selectedOption.data("guessesSoFar"));
+	}
+
+	// Run this function when the user presses a key; determine what key was pressed
+	document.onkeyup = function(event) {
+		var userGuess = event.key;
+
+		// Only allow the user to press letters for the event key
+		function allLetter(inputtxt) {
+			var letters = /^A-Za-z]+$/;
+				if(inputtxt.value.match(letters)) {
+					return true;
+				}
+				else {
+					alert("please enter a letter");
+					return false;
+				}
+
+		}
+		
+		// Computer chooses random letter from the alphabet
+		function randomString() {
+			var chars = "abcdefghijklmnopqrstuvwxyz";
+			var string = 26;
+			var randomString = "";
+
+			for (var i = 0; i < string.length; i++) {
+				var rnum = Math.floor(Math.random() * chars.length);
+				randomString += chars.substring(rnum,rnum+1);
+			}
+			document.randform.randomfield.value = randomstring;
+		}
+
+		// Alerts user guess & computer guess
+		var html = 	"You chose:" + userGuess +  "\n" +
+      				"The computer chose:" + randomString + "\n" +
+     				"Wins: " + wins + "\n" +
+      				"Losses: " + losses + "\n"
+      				"Guesses left: " + guessesLeft + "\n" +
+      				"Guesses so far: " + guessesSoFar;
+
+    	gameElem.innerHTML = html
+
+		// //If user guesses correct letter
+		// if (userGuess.equals("randomString")) {
+		// 	wins++;
+
+		// }
+		// 	do (
+		// 		alert("You guessed correctly!")
+		// 	)
+
+		// else if {
+		// 	guessesLeft--;
+		// }
+		// 	do {
+		// 		Alert("You guessed incorrectly!")
+		// 	}
+		// if (guesses === 10) {
+		// 	losses--;
+		// }
+
+		// Update wins, losses, guesses left & guesses so far
+
+		// Restart back to 0 once user wins
+
+		// Create a variable to hold our new HTML. OurHTML now keeps track of the user and computer guesses, and wins/losses/ties.
+    	var html =
+    		"<p> You chose: " + userGuess + "</p>" +
+    		"<p> The computer chose: " + randomString + "</p>" +
+    		"<p> Wins: " + wins + "</p>" +
+    		"<p> Losses: " + losses + "</p>" +
+    		"<p> Guesses left: " + guessesLeft + "</p>" + 
+    		"<p> Guesses so far : " + guessesSoFar + "</p>";
+    	
+
+	};
+
+</script>
+
+</body>
+</html>
