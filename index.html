@@ -4,6 +4,8 @@
 	<title></title>
 	<h1>The Psychic Game</h1>
 	<h2>Guess what letter I'm thinking of</h2>
+	<link rel="stylesheet" type="text/css" href="/Users/alex/Desktop/coding bootcamp/homework/Psychic Game/assets/css/style.css">
+	
 </head>
 <body>
 	<div id = "game"></div>
@@ -11,11 +13,11 @@
 	<div id = "losses"></div>
 	<div id = "guessesLeft"></div>
 	<div id = "guessesSoFar"></div>
+	<div id = "chosenLetter"></div>
 	
-	<link rel="stylesheet" type="text/css" href="/Users/alex/Desktop/coding bootcamp/homework/Psychic Game/assets/css/style.css">
-	<script type="text/javascript">
-	
-	// Reset after the user loses
+<script> 
+
+// Reset after the user loses
 	var reset = function() {
 		document.getElementById('input').value = "";
 		document.getElementById('result').scrollTop = document.getElementById
@@ -30,10 +32,11 @@
 	var gameElem = document.getElementById("game");
 
 	function myFunction() {
-		var wins = document.getElementById('wins');
-		var losses = document.getElementById('losses');
-		var guessesLeft = document.getElementById('guessesLeft');
-		var guessesSoFar = document.getElementById('guessesSoFar');
+		var wins = 0;
+		var losses = 0;
+		var guessesLeft = 9;
+		var guessesSoFar = 0;
+		var chosenLetter = "";
 	}
 
 	// Assign value for inputs
@@ -68,8 +71,7 @@
 			var randomString = "";
 
 			for (var i = 0; i < string.length; i++) {
-				var rnum = Math.floor(Math.random() * chars.length);
-				randomString += chars.substring(rnum,rnum+1);
+				var chosenLetter = chars[Math.floor(Math.random() * chars.length)];
 			}
 			document.randform.randomfield.value = randomstring;
 		}
@@ -103,9 +105,9 @@
 		// 	losses--;
 		// }
 
-		// Update wins, losses, guesses left & guesses so far
+		// Update wins, losses, guesses left & guesses so far each time user guesses 
 
-		// Restart back to 0 once user wins
+		// Restart letter after guesses left is 0
 
 		// Create a variable to hold our new HTML. OurHTML now keeps track of the user and computer guesses, and wins/losses/ties.
     	var html =
@@ -120,6 +122,5 @@
 	};
 
 </script>
-
 </body>
 </html>
